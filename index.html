@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="game-west" style="background-image: url(west.jpg); height: 1000px; width: 100%; background-size: 100% 100%">
+		<div>
+			<h1 style="color: green">Очки</h1>
+			<h1 style="color: green"class="score ml-5">0</h1>
+		</div>
+		<div>
+			<h1 style="color: green">Здоровье</h1>
+			<h1 style="color: green"class="hp ml-5">1000</h1>
+		</div>
+		<img class="wild" src="wild.png" alt="" style="position: absolute; width: 6%; margin-left: 20%; margin-top: 19%; ">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 60%; margin-top: 16%; ">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 70%; margin-top: 20%; ">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 10%; margin-top: 12%; ">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 40%; margin-top: 13%; ">
+		<img class="wild" src="wild.png" alt="" style="position: absolute; width: 6%; margin-left: 80%; margin-top: 8%; ">
+
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 10%; margin-top: 30%; ">
+		<img class="wild" src="wild.png" alt="" style="position: absolute; width: 5%; margin-left: 40%; margin-top: 30%; ">
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 60%; margin-top: 30%; ">
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 30%; margin-top: 24%; ">
+	
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 0%; margin-top: 20%; ">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 25%; margin-top: 10%; ">
+		<img class="wild" src="wild.png" alt="" style="position: absolute; width: 10%; margin-left: 50%; margin-top: 24%; ">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 70%; margin-top: 35%; ">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 90%; margin-top: 20%; ">
+	</div>
+	<div class="game-modern" style="background-image: url(modern.png); height: 1000px; width: 100%; background-size: 100% 100%; display: none; ">
+		<div>
+			<h1 style="color: green">Очки</h1>
+			<h1 style="color: green" class="score1 ml-5">0</h1>
+		</div>
+		<div>
+			<h1 style="color: green">Здоровье</h1>
+			<h1 style="color: green" class="hp1 ml-5">1000</h1>
+		</div>
+		<img class="enemy4" src="killer1.png" alt="" style="position: absolute; width: 6%; margin-left: 20%; margin-top: 3%; ">
+		<img class="survivors" src="civ1.png" alt="" style="position: absolute; width: 6%; margin-left: 60%; margin-top: 16%; ">
+		<img class="enemy4" src="killer1.png" alt="" style="position: absolute; width: 6%; margin-left: 70%; margin-top: 2%; ">
+		<img class="survivors" src="civ1.png" alt="" style="position: absolute; width: 6%; margin-left: 10%; margin-top: -10%; ">
+		<img class="enemy4" src="killer1.png" alt="" style="position: absolute; width: 6%; margin-left: 40%; margin-top: 4%; ">
+		<img class="enemy4" src="killer1.png" alt="" style="position: absolute; width: 6%; margin-left: 80%; margin-top: 8%; ">
+
+		<img class="enemy5" src="killer2.png" alt="" style="position: absolute; width: 8%; margin-left: 10%; margin-top: 19%; ">
+		<img class="survivors" src="civ2.png" alt="" style="position: absolute; width: 8%; margin-left: 40%; margin-top: 23%; ">
+		<img class="enemy5" src="killer2.png" alt="" style="position: absolute; width: 8%; margin-left: 60%; margin-top: 27%; ">
+		<img class="enemy5" src="killer2.png" alt="" style="position: absolute; width: 8%; margin-left: 30%; margin-top: 24%; ">
+	
+		<img class="enemy6" src="killer3.png" alt="" style="position: absolute; width: 6%; margin-left: 0%; margin-top: 20%; ">
+		<img class="survivors" src="civ3.png" alt="" style="position: absolute; width: 6%; margin-left: 25%; margin-top: 10%; ">
+		<img class="enemy6" src="killer3.png" alt="" style="position: absolute; width: 6%; margin-left: 50%; margin-top: 16%; ">
+		<img class="survivors" src="civ3.png" alt="" style="position: absolute; width: 6%; margin-left: 70%; margin-top: 25%; ">
+		<img class="enemy6" src="killer3.png" alt="" style="position: absolute; width: 6%; margin-left: 90%; margin-top: 10%; ">
+	</div>
+	<script>
+		let score = 0 
+		let score1 = score
+		let health = 1000
+		let health1 = 1000
+		//здесь должно быть создание и вызов функции, также if()
+		let enemy1 = document.querySelectorAll(".enemy1");
+		let enemy2 = document.querySelectorAll(".enemy2");
+		let enemy3 = document.querySelectorAll(".enemy3");
+		let enemy4 = document.querySelectorAll(".enemy4");
+		let enemy5 = document.querySelectorAll(".enemy5");
+		let enemy6 = document.querySelectorAll(".enemy6");
+		let civilian = document.querySelectorAll(".wild")
+		let survivors = document.querySelectorAll(".survivors")
+		let gameWest =document.querySelector(".game-west")
+		let gameModern = document.querySelector(".game-modern")
+		let ochki = document.querySelector('.score')
+		let hp = document.querySelector(".hp")
+		let ochki1 = document.querySelector(".score1")
+		let hp1 = document.querySelector(".hp1")
+		
+		let func = function(arg) {
+			score = score + arg
+			ochki.innerHTML = score
+		}
+		//west
+		for(let i=0;i<4;i++){
+			enemy1[i].onclick = function(){
+				enemy1[i].style.display = "none"
+				func(10)
+			}
+		}
+		for(let i=0;i<3;i++){
+			enemy2[i].onclick = function(){
+				enemy2[i].style.display = "none"
+				func(20)
+			}
+		}
+		for(let i=0;i<4;i++){
+			enemy3[i].onclick = function(){
+				enemy3[i].style.display = "none"
+				func(30)
+			}
+		}
+		for(let i=0;i<4;i++){
+			civilian[i].onclick = function(){
+				civilian[i].style.display = "none"
+				score = score - 50
+				ochki.innerHTML = score
+			}
+		}
+		//modern
+			for(let i=0;i<4;i++){
+			enemy4[i].onclick = function(){
+				enemy4[i].style.display = "none"
+				score1 = score1 + 70
+				ochki1.innerHTML = score1
+				}
+			}
+			for(let i=0;i<3;i++){
+				enemy5[i].onclick = function(){
+					enemy5[i].style.display = "none"
+					score1 = score1 + 80
+					ochki1.innerHTML = score1
+				}
+			}
+			for(let i=0;i<3;i++){
+				enemy6[i].onclick = function(){
+					enemy6[i].style.display = "none"
+					score1 = score1 + 90
+					ochki1.innerHTML = score1
+				}
+			}
+			for(let i=0;i<5;i++){
+				survivors[i].onclick = function(){
+					survivors[i].style.display = "none"
+					score1 = score1 - 100
+					ochki1.innerHTML = score1
+				}
+		}
+	
+		let time = function(){
+			for(let i=0;i<4;i++){
+				enemy1[i].style.display = "none"
+			}
+			for(let i=0;i<3;i++){
+				enemy2[i].style.display = "none"
+			}
+			for(let i=0;i<4;i++){
+				enemy3[i].style.display = "none"
+			}
+			for(let i=0;i<4;i++){
+				civilian[i].style.display = "none"
+			}
+			if(score>=100 && health >= 0){
+				alert("You win");
+				gameWest.style.display = "none";
+				gameModern.style.display = "block";
+				alert("Следующий уровень")
+				setTimeout(game2,10000)
+			}
+			else{
+				alert("You lose")
+			}
+		}
+		let game2 = function(){
+			for(let i=0;i<4;i++){
+				enemy4[i].style.display = "none"
+			}
+			for(let i=0;i<3;i++){
+				enemy5[i].style.display = "none"
+			}
+			for(let i=0;i<3;i++){
+				enemy6[i].style.display = "none"
+			}
+			for(let i=0;i<5;i++){
+				survivors[i].style.display = "none"
+			}
+			if(score>=100 && health >= 0){
+				alert("You win");
+				gameModern.style.display = "none";
+			}
+			else{
+				alert("You lose")
+			}
+		}
+		let dmg = function(){
+			for(let i=0;i<4;i++){
+				if(enemy1[i].style.display == "block"){
+					health = health - 50
+					hp.innerHTML = health
+				}
+			}
+			for(let i=0;i<3;i++){
+				if(enemy2[i].style.display == "block"){
+					health = health - 100
+					hp.innerHTML = health
+				}
+			}
+			for(let i=0;i<4;i++){
+				if(enemy3[i].style.display == "block"){
+					health = health - 100
+					hp.innerHTML = health
+				}
+			}
+			for(let i=0;i<4;i++){
+				if(enemy4[i].style.display == "block"){
+					health1 = health1 - 50
+					hp1.innerHTML = health1
+				}
+			}
+			for(let i=0;i<3;i++){
+				if(enemy5[i].style.display == "block"){
+					health1 = health1 - 100
+					hp1.innerHTML = health1
+				}
+			}
+			for(let i=0;i<3;i++){
+				if(enemy6[i].style.display == "block"){
+					health1 = health1 - 100
+					hp1.innerHTML = health1
+				}
+			}
+		}
+		setTimeout(time,10000)
+		setInterval(dmg,2000)
+	</script>
+</body>
+</html>
